@@ -1,0 +1,3 @@
+'use client';
+import AdminCollection from '@/modules/admin/components/AdminCollection';
+export default function WebhookManager(){return <AdminCollection collection="webhooks" searchKeys={['name','url','events']} filters={['Active','Draft','Paused']} createLabel="Add webhook" template={{name:'',url:'',events:'course.completed',status:'Draft',lastDelivery:'—'}} createFields={[{key:'name',label:'Name'},{key:'url',label:'Endpoint URL'},{key:'events',label:'Events'},{key:'status',label:'Status',type:'select',options:['Draft','Active','Paused']}]} columns={[["name","Name"],["url","Endpoint"],["events","Events"],["status","Status"],["lastDelivery","Last delivery"]]}/>}

@@ -1,0 +1,21 @@
+import Link from 'next/link';
+import MetricCard from '@/modules/shared/components/MetricCard';
+
+export const metadata = { title: 'Corporate Training — OpsAcademy' };
+
+export default function CompaniesPage(){
+  return <>
+    <section className="page-hero"><div className="container"><div className="eyebrow">For Companies</div><h1>Standardize industry knowledge across your team.</h1><p className="lead">Give employees a structured operations foundation, assign role-based development and see who has actually completed training.</p><div className="hero-actions"><a className="button" href="#pilot">Start a 30-Day Pilot →</a><Link className="button button-secondary" href="/pricing">View Plans</Link><Link className="button button-secondary" href="/company">Admin Demo</Link></div></div></section>
+    <section className="section"><div className="container">
+      <div className="section-head"><div className="eyebrow">Corporate learning</div><h2>Stop rebuilding onboarding from scratch.</h2><p className="lead">Use OpsAcademy for the industry knowledge every employee should share, then keep your internal experts focused on company-specific processes and systems.</p></div>
+      <div className="grid-4"><MetricCard value="47" label="Employees" note="Example workspace"/><MetricCard value="72%" label="Average completion"/><MetricCard value="61" label="Certificates earned"/><MetricCard value="14" label="Courses assigned"/></div>
+    </div></section>
+    <section className="section section-border"><div className="container grid-3">
+      <div className="card"><div className="feature-number">ONBOARD</div><h3>Give every new hire the same foundation.</h3><p className="muted">Assign introductory programs by role, team or employee cohort.</p></div>
+      <div className="card"><div className="feature-number">DEVELOP</div><h3>Build role-specific capability.</h3><p className="muted">Create structured learning paths for product, operations, project teams and managers.</p></div>
+      <div className="card"><div className="feature-number">MEASURE</div><h3>See learning progress.</h3><p className="muted">Track completion, assessments and certificates without chasing spreadsheets.</p></div>
+    </div></section>
+    <section className="section"><div className="container band"><div className="band-grid"><div><div className="eyebrow">Company Academy</div><h2>Turn internal knowledge into structured training.</h2><p className="lead">Combine OpsAcademy professional courses with your own products, policies, tools, onboarding and internal processes inside a private learning environment.</p><div className="hero-actions"><Link className="button button-secondary" href="/company-academy">Explore Company Academy →</Link></div></div><div className="check-list"><div className="check">Private company portal</div><div className="check">Company branding</div><div className="check">Internal modules</div><div className="check">Custom assessments</div><div className="check">Employee analytics</div><div className="check">Company certificates</div></div></div></div></section>
+    <section className="section section-border" id="pilot"><div className="container"><div className="grid-2"><div><div className="eyebrow">Low-risk pilot</div><h2>30-Day Team Academy Pilot</h2><p className="lead">Validate the program with a small team before making an annual commitment.</p><ul className="clean"><li>Up to 10 employees</li><li>operations Fundamentals</li><li>One professional learning path</li><li>Assessments and certificates</li><li>Manager dashboard</li><li>Final learning report</li></ul></div><div className="card pricing-card featured"><span className="pill">Pilot</span><h3 style={{marginTop:20}}>Team Academy Pilot</h3><div className="price">€1,500</div><p className="muted">One-time 30-day program</p><a className="button button-block" href="/contact">Request Pilot →</a><p className="muted small" style={{marginTop:12}}>Use the demo request flow to capture pilot requirements.</p></div></div></div></section>
+  </>;
+}

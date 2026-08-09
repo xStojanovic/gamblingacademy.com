@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import PlanEntitlementManager from '@/modules/billing/components/PlanEntitlementManager';
+export default function Page(){return <AdminShell active="plans" eyebrow="Owner Admin / Commercial" title="Plans, Pricing & Entitlements" description="Manage public pricing, seat limits, feature entitlements and billing-provider mappings without editing code."><PlanEntitlementManager/></AdminShell>}

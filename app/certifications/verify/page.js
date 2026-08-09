@@ -1,0 +1,3 @@
+import CertificateVerifier from '@/modules/credentials/components/CertificateVerifier';
+export const metadata={title:'Verify Credential — OpsAcademy'};
+export default function VerifyPage(){return <><section className="page-hero"><div className="container"><div className="eyebrow">Credential Verification</div><h1>Verify a OpsAcademy certificate.</h1><p className="lead">Enter the credential ID shown on a certificate to confirm the program, holder, issue date and assessment result.</p></div></section><section className="section"><div className="container narrow"><CertificateVerifier/></div></section></>}

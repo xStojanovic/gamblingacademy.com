@@ -1,0 +1,2 @@
+import {NextResponse} from 'next/server';import {env} from '@/modules/infrastructure/config/env';
+export async function POST(req){let event;try{event=await req.json()}catch(e){return NextResponse.json({ok:false},{status:400})}if(env.posthogKey){fetch(`${env.posthogHost}/capture/`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({api_key:env.posthogKey,event:event.name||'event',properties:{...event.properties,$current_url:event.path}})}).catch(()=>{})}return NextResponse.json({ok:true})}

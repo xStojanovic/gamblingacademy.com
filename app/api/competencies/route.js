@@ -1,0 +1,2 @@
+import {NextResponse} from 'next/server';import {dbSelect} from '@/modules/infrastructure/services/supabaseRest';import {competencies,roleProfiles} from '@/modules/competencies/data/seed';
+export async function GET(){const [skills,roles]=await Promise.all([dbSelect('competencies','select=*&status=eq.active&order=name.asc'),dbSelect('role_profiles','select=*&status=eq.active&order=title.asc')]);return NextResponse.json({competencies:skills.ok?skills.data:competencies,roles:roles.ok?roles.data:roleProfiles,demo:!skills.ok})}

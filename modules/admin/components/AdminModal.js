@@ -1,0 +1,2 @@
+'use client';
+export default function AdminModal({title,description,onClose,children}){return <div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&onClose()}><div className="modal-card admin-modal"><div className="row-between"><div><div className="eyebrow">Admin action</div><h3>{title}</h3>{description&&<p className="muted small">{description}</p>}</div><button className="modal-close" onClick={onClose}>×</button></div>{children}</div></div>}

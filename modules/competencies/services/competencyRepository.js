@@ -1,0 +1,4 @@
+export async function loadCompetencies(){try{const r=await fetch('/api/competencies',{cache:'no-store'});if(!r.ok)return null;return r.json()}catch(e){return null}}
+export async function saveCompetency(payload){try{const r=await fetch('/api/admin/competencies',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});return await r.json()}catch(e){return {ok:false,demo:true}}}
+export async function loadLearnerSkills(){try{const r=await fetch('/api/learner/skills',{cache:'no-store'});return r.ok?await r.json():null}catch(e){return null}}
+export async function saveLearnerSkills(skills){try{const r=await fetch('/api/learner/skills',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({skills})});return await r.json()}catch(e){return {ok:false,demo:true}}}

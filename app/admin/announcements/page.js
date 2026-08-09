@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import AnnouncementManager from '@/modules/admin/components/AnnouncementManager';
+export default function Page(){return <AdminShell active="announcements" eyebrow="Owner Admin / Communications" title="Announcements" description="Create in-app and email communications for learners and company administrators."><AnnouncementManager/></AdminShell>}

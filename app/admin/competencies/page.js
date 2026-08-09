@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import AdminCompetencyManager from '@/modules/competencies/components/AdminCompetencyManager';
+export default function Page(){return <AdminShell active="competencies" eyebrow="Owner Admin / Capability" title="Competencies & Role Profiles" description="Define the capability framework that connects courses, assessments, roles and company skill-gap reporting."><AdminCompetencyManager/></AdminShell>}

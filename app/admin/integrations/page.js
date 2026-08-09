@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import IntegrationManager from '@/modules/admin/components/IntegrationManager';
+export default function Page(){return <AdminShell active="integrations" eyebrow="Owner Admin / Platform" title="Integrations" description="Connect infrastructure, billing, email, analytics, AI and media services through production adapters."><IntegrationManager/></AdminShell>}

@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import AdminOnboardingManager from '@/modules/onboarding/components/AdminOnboardingManager';
+export default function Page(){return <AdminShell active="onboarding" eyebrow="Owner Admin / Learning" title="Onboarding Programs" description="Build reusable 30/60/90-day onboarding workflows using courses, company content, assessments and manager tasks."><AdminOnboardingManager/></AdminShell>}

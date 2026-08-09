@@ -1,0 +1,47 @@
+import Link from 'next/link';
+import CourseCard from '@/modules/public/components/CourseCard';
+import PathCard from '@/modules/public/components/PathCard';
+import { courses, learningPaths, resources, knowledgeArticles } from '@/modules/learning/data/catalog';
+
+export default function HomePage() {
+  return (
+    <>
+      <section className="hero">
+        <div className="container hero-grid">
+          <div>
+            <div className="eyebrow">Professional operations education</div>
+            <h1>Learn how the operations industry actually works.</h1>
+            <p className="lead">Practical professional education for people and companies working across the global operations industry. Understand the systems, processes, terminology and responsibilities behind modern gaming businesses.</p>
+            <div className="hero-actions"><Link className="button" href="/courses">Explore Courses →</Link><Link className="button button-secondary" href="/for-companies">Train Your Team</Link></div>
+          </div>
+          <div className="hero-visual" aria-label="Learning dashboard preview">
+            <div className="visual-toolbar"><span className="dot"></span><span className="dot"></span><span className="dot"></span></div>
+            <div className="visual-panel"><div className="row-between"><div><div className="visual-title">Continue learning</div><h3>operations Fundamentals</h3></div><span className="pill">Foundation</span></div><div className="progress-row"><div className="progress"><span style={{width:'67%'}}></span></div><b>67%</b></div></div>
+            <div className="mini-grid"><div className="mini-card"><div className="muted small">Learning path</div><div className="mini-number">4 / 6</div><div>New to Operations</div></div><div className="mini-card"><div className="muted small">Certificates</div><div className="mini-number">02</div><div>Verified credentials</div></div><div className="mini-card"><div className="muted small">Weekly learning</div><div className="mini-number">2.4h</div><div>Across 8 lessons</div></div><div className="mini-card"><div className="muted small">Assessment</div><div className="mini-number">88%</div><div>Average score</div></div></div>
+            <Link className="dashboard-preview-link" href="/dashboard">Open learner demo →</Link>
+          </div>
+        </div>
+      </section>
+
+      <div className="trust-strip"><div className="container trust-grid"><b>Built for operations professionals</b><span>Operators</span><span>Suppliers</span><span>Product</span><span>Operations</span><span>Project Teams</span><span>Managers</span></div></div>
+
+      <section className="section"><div className="container"><div className="section-head"><div className="eyebrow">Why OpsAcademy</div><h2>Starting in operations shouldn't take months to understand.</h2><p className="lead">Modern service businesses are complex. Product, payments, compliance, operations and technology all depend on each other. We give professionals one structured place to understand how those pieces connect.</p></div><div className="grid-3"><div className="card feature-card"><div className="feature-number">01 — CONTEXT</div><h3>Understand the whole ecosystem.</h3><p className="muted">See where service owners, suppliers, platforms, controls, providers and internal teams fit together.</p></div><div className="card feature-card"><div className="feature-number">02 — ROLE</div><h3>Learn what matters for your job.</h3><p className="muted">Follow practical learning paths mapped to product, operations, project management and leadership roles.</p></div><div className="card feature-card"><div className="feature-number">03 — PRACTICE</div><h3>Apply knowledge to real work.</h3><p className="muted">Use case studies, assessments, diagrams and professional templates instead of passive theory.</p></div></div></div></section>
+
+      <section className="section section-border"><div className="container"><div className="row-between section-head" style={{maxWidth:'none'}}><div><div className="eyebrow">Course catalogue</div><h2>Build your industry foundation.</h2><p className="muted">12 structured courses in the current MVP content architecture.</p></div><Link className="text-link" href="/courses">View all courses →</Link></div><div className="grid-3">{courses.slice(0,6).map(course => <CourseCard course={course} key={course.slug} />)}</div></div></section>
+
+      <section className="section section-border"><div className="container"><div className="section-head"><div className="eyebrow">Learning Paths</div><h2>Learn for the role you have—or the role you want.</h2><p className="lead">Structured programs combine courses in the order that makes sense for a real job.</p></div><div className="grid-2">{learningPaths.slice(0,4).map(path => <PathCard path={path} key={path.slug}/>)}</div><div className="hero-actions"><Link className="button button-secondary" href="/learning-paths">Explore all learning paths →</Link></div></div></section>
+
+      <section className="section"><div className="container band"><div className="band-grid"><div><div className="eyebrow">For companies</div><h2>One learning foundation for your entire team.</h2><p className="lead">Assign structured industry learning, organize employees by team, monitor completion, issue credentials and combine Academy content with your internal onboarding.</p><div className="hero-actions"><Link href="/for-companies" className="button">Train Your Team →</Link><Link href="/company" className="button button-secondary">View Admin Demo</Link></div></div><div className="check-list"><div className="check">Employee onboarding</div><div className="check">Team management</div><div className="check">Course assignments</div><div className="check">Assessments</div><div className="check">Verified certificates</div><div className="check">Progress reporting</div><div className="check">Private company modules</div><div className="check">Custom learning paths</div></div></div></div></section>
+
+      <section className="section section-border"><div className="container grid-2"><div><div className="eyebrow">Company Academy</div><h2>Industry knowledge + your internal knowledge.</h2><p className="lead">Use OpsAcademy for shared professional foundations, then add private modules covering your products, approved procedures, tools, organizational structure and onboarding.</p><div className="hero-actions"><Link className="button" href="/company-academy">Explore Company Academy →</Link></div></div><div className="academy-stack-preview"><div className="academy-layer"><span>01</span><div><b>Industry Foundation</b><p>OpsAcademy reviewed coursework</p></div></div><div className="academy-layer"><span>02</span><div><b>Company Context</b><p>Products, tools and teams</p></div></div><div className="academy-layer"><span>03</span><div><b>Role Training</b><p>Processes and responsibilities</p></div></div><div className="academy-layer"><span>04</span><div><b>Assessment</b><p>Completion and verification</p></div></div></div></div></section>
+
+      <section className="section section-border"><div className="container"><div className="row-between section-head" style={{maxWidth:'none'}}><div><div className="eyebrow">Practical Resource Library</div><h2>Frameworks you can take back to work.</h2></div><Link className="text-link" href="/resources">Browse 20 resources →</Link></div><div className="grid-4">{resources.slice(0,4).map(r=><div className="card resource-mini" key={r.slug}><span className="file-badge">{r.format}</span><h3>{r.title}</h3><p className="muted small">{r.description}</p></div>)}</div></div></section>
+
+      <section className="section section-border"><div className="container ai-home-grid"><div className="ai-orb">GO<span>AI</span></div><div><div className="eyebrow">Ask OpsAcademy</div><h2>An AI study assistant grounded in Academy content.</h2><p className="lead">The planned production assistant answers questions using reviewed learning material and shows the source lesson behind each response.</p><div className="hero-actions"><Link className="button" href="/dashboard/tutor">Try the MVP tutor →</Link></div></div></div></section>
+
+      <section className="section section-border"><div className="container"><div className="row-between section-head" style={{maxWidth:'none'}}><div><div className="eyebrow">Knowledge Hub</div><h2>Free professional explainers.</h2></div><Link className="text-link" href="/knowledge">Open Knowledge Hub →</Link></div><div className="grid-3">{knowledgeArticles.slice(0,3).map(a=><Link className="card article-card" href={`/knowledge/${a.slug}`} key={a.slug}><span className="pill">{a.category}</span><h3 style={{marginTop:18}}>{a.title}</h3><p className="muted">{a.summary}</p><span className="text-link">Read · {a.read} →</span></Link>)}</div></div></section>
+
+      <section className="section section-border"><div className="container band"><div className="section-head center" style={{marginBottom:0}}><div className="eyebrow">Start building expertise</div><h2>Understand the industry. Master your role. Build better teams.</h2><p className="lead" style={{margin:'0 auto'}}>Start with the foundations as an individual, or bring structured professional learning to your company.</p><div className="hero-actions" style={{justifyContent:'center'}}><Link className="button" href="/courses">Start Learning</Link><Link className="button button-secondary" href="/for-companies">Train Your Team</Link></div></div></div></section>
+    </>
+  );
+}

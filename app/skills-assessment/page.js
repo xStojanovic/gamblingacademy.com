@@ -1,0 +1,1 @@
+import SkillsAssessment from '@/modules/career/components/SkillsAssessment';export const metadata={title:'Skills Assessment'};export default function Page(){return <section className="section"><div className="container narrow"><SkillsAssessment/></div></section>}

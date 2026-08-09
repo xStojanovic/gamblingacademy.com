@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import AdminRevenueDashboard from '@/modules/reporting/components/AdminRevenueDashboard';
+export default function Page(){return <AdminShell active="revenue" eyebrow="Owner Admin / Commercial" title="Revenue & Renewals" description="Monitor recurring revenue, contract value, renewal risk, payment exceptions and expansion opportunities."><AdminRevenueDashboard/></AdminShell>}

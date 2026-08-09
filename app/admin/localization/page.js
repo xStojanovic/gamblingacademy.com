@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import LocalizationManager from '@/modules/admin/components/LocalizationManager';
+export default function Page(){return <AdminShell active="localization" eyebrow="Owner Admin / Content" title="Localization" description="Track language coverage and publishing readiness for international learning content."><LocalizationManager/></AdminShell>}

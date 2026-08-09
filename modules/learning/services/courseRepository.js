@@ -1,0 +1,2 @@
+export async function persistCourse(course){const r=await fetch(`/api/admin/courses/${encodeURIComponent(course.slug)}`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(course)});return r.json()}
+export async function publishCourse(slug,course){const r=await fetch(`/api/admin/courses/${encodeURIComponent(slug)}/publish`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(course)});return r.json()}

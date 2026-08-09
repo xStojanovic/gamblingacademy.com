@@ -1,0 +1,3 @@
+export async function loadOnboarding(){try{const r=await fetch('/api/company/onboarding',{cache:'no-store'});return r.ok?await r.json():null}catch(e){return null}}
+export async function saveOnboardingProgram(program){try{const r=await fetch('/api/company/onboarding',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(program)});return await r.json()}catch(e){return {ok:false,demo:true}}}
+export async function updateOnboardingEnrollment(id,patch){try{const r=await fetch(`/api/company/onboarding/${encodeURIComponent(id)}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(patch)});return await r.json()}catch(e){return {ok:false,demo:true}}}

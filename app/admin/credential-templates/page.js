@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import CredentialTemplateManager from '@/modules/credentials/components/CredentialTemplateManager';
+export default function Page(){return <AdminShell active="credentialTemplates" eyebrow="Owner Admin / Credentials" title="Credential Templates" description="Manage certificate design, validity, renewal rules, identifiers and public verification behavior."><CredentialTemplateManager/></AdminShell>}

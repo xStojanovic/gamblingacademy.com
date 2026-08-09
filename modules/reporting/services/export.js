@@ -1,0 +1,2 @@
+export function toCsv(rows=[]){if(!rows.length)return '';const keys=[...new Set(rows.flatMap(x=>Object.keys(x)))];const esc=v=>`"${String(v??'').replaceAll('"','""')}"`;return [keys.map(esc).join(','),...rows.map(r=>keys.map(k=>esc(r[k])).join(','))].join('\n')}
+export function downloadCsv(name,rows){const blob=new Blob([toCsv(rows)],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),500)}

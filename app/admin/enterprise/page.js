@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import EnterpriseControls from '@/modules/admin/components/EnterpriseControls';
+export default function Page(){return <AdminShell active="enterprise" eyebrow="Owner Admin / Enterprise" title="Enterprise Controls" description="Global SSO, SCIM, security and data-governance capabilities for larger customers."><EnterpriseControls/></AdminShell>}
