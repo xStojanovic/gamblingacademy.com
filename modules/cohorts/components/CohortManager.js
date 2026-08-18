@@ -1,0 +1,20 @@
+'use client';
+import {useMemo,useState} from 'react';
+
+const seed=[
+ {id:'coh-101',name:'Operations Leadership — September',audience:'Managers',learners:24,capacity:30,progress:62,status:'Active',start:'2026-09-07',end:'2026-10-30',sessions:4,instructor:'Elena Markovic'},
+ {id:'coh-102',name:'New Hire Foundations — October',audience:'New employees',learners:18,capacity:25,progress:0,status:'Scheduled',start:'2026-10-05',end:'2026-10-30',sessions:2,instructor:'David Chen'},
+ {id:'coh-103',name:'Product Professional Cohort',audience:'Product',learners:16,capacity:20,progress:100,status:'Completed',start:'2026-06-08',end:'2026-07-24',sessions:5,instructor:'Maya Ortiz'}
+];
+export default function CohortManager({mode='admin'}){
+ const [items,setItems]=useState(seed);const [filter,setFilter]=useState('All');const [open,setOpen]=useState(false);const [form,setForm]=useState({name:'',audience:'All employees',capacity:20,start:'',end:'',instructor:''});
+ const visible=useMemo(()=>filter==='All'?items:items.filter(x=>x.status===filter),[items,filter]);
+ function create(){if(!form.name.trim())return;setItems(v=>[{id:`coh-${Date.now()}`,name:form.name,audience:form.audience,learners:0,capacity:Number(form.capacity)||20,progress:0,status:'Scheduled',start:form.start||'TBD',end:form.end||'TBD',sessions:0,instructor:form.instructor||'Unassigned'},...v]);setForm({name:'',audience:'All employees',capacity:20,start:'',end:'',instructor:''});setOpen(false)}
+ return <div className="stack-gap">
+  <div className="dashboard-panel"><div className="row-between"><div><h3>Cohorts & instructor-led programs</h3><p className="muted">Run scheduled learning programs with enrollment limits, live sessions, instructors and cohort-level reporting.</p></div><button className="button button-small" onClick={()=>setOpen(v=>!v)}>+ New cohort</button></div>
+   {open&&<div className="inline-create-grid"><label className="field"><span>Name</span><input value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/></label><label className="field"><span>Audience</span><input value={form.audience} onChange={e=>setForm({...form,audience:e.target.value})}/></label><label className="field"><span>Capacity</span><input type="number" value={form.capacity} onChange={e=>setForm({...form,capacity:e.target.value})}/></label><label className="field"><span>Instructor</span><input value={form.instructor} onChange={e=>setForm({...form,instructor:e.target.value})}/></label><label className="field"><span>Start</span><input type="date" value={form.start} onChange={e=>setForm({...form,start:e.target.value})}/></label><label className="field"><span>End</span><input type="date" value={form.end} onChange={e=>setForm({...form,end:e.target.value})}/></label><div className="row"><button className="button button-small" onClick={create}>Create cohort</button><button className="button button-secondary button-small" onClick={()=>setOpen(false)}>Cancel</button></div></div>}
+   <div className="admin-tabs compact-tabs">{['All','Active','Scheduled','Completed'].map(x=><button key={x} className={filter===x?'active':''} onClick={()=>setFilter(x)}>{x}</button>)}</div>
+  </div>
+  <div className="cohort-grid">{visible.map(c=><article className="dashboard-panel cohort-card" key={c.id}><div className="row-between"><span className={`status ${c.status==='Active'?'success':c.status==='Scheduled'?'warning':''}`}>{c.status}</span><span className="muted small">{c.learners}/{c.capacity} seats</span></div><h3>{c.name}</h3><p className="muted small">{c.audience} · {c.instructor}</p><div className="progress-track"><span style={{width:`${c.progress}%`}}/></div><div className="metric-strip"><div><b>{c.progress}%</b><span>Progress</span></div><div><b>{c.sessions}</b><span>Live sessions</span></div><div><b>{c.start}</b><span>Starts</span></div></div><div className="row" style={{marginTop:14}}><button className="button button-secondary button-small">Manage learners</button><button className="button button-secondary button-small">Sessions</button>{mode==='admin'&&<button className="ghost-button">Report</button>}</div></article>)}</div>
+ </div>
+}

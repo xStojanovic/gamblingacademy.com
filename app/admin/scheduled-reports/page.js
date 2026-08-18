@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import ScheduledReports from '@/modules/reporting/components/ScheduledReports';
+export default function Page(){return <AdminShell active="scheduledReports" eyebrow="Owner Admin / Analytics" title="Scheduled Reports" description="Configure recurring executive, customer-success and learning reports."><ScheduledReports scope="admin"/></AdminShell>}

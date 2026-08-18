@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import InteroperabilityManager from '@/modules/interoperability/components/InteroperabilityManager';
+export default function Page(){return <AdminShell active="interoperability" eyebrow="Owner Admin / Enterprise" title="LMS Interoperability" description="Manage SCORM, xAPI, LTI and external LMS delivery settings."><InteroperabilityManager/></AdminShell>}

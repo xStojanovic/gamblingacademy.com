@@ -11,7 +11,7 @@ export default function HomePage() {
           <div>
             <div className="eyebrow">Professional operations education</div>
             <h1>Learn how the operations industry actually works.</h1>
-            <p className="lead">Practical professional education for people and companies working across the global operations industry. Understand the systems, processes, terminology and responsibilities behind modern gaming businesses.</p>
+            <p className="lead">Practical professional education for people and companies working across the global operations industry. Understand the systems, processes, terminology and responsibilities behind modern service businesses.</p>
             <div className="hero-actions"><Link className="button" href="/courses">Explore Courses →</Link><Link className="button button-secondary" href="/for-companies">Train Your Team</Link></div>
           </div>
           <div className="hero-visual" aria-label="Learning dashboard preview">

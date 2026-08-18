@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import WhiteLabelManager from '@/modules/whitelabel/components/WhiteLabelManager';
+export default function Page(){return <AdminShell active="whiteLabel" eyebrow="Owner Admin / Enterprise" title="White-label Academies" description="Control branded customer academies, custom domains, themes and identity rules."><WhiteLabelManager scope="admin"/></AdminShell>}

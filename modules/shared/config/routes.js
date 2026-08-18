@@ -13,6 +13,7 @@ export const learnerNavigation=[
  {key:'paths',href:'/dashboard/learning-paths',label:'Learning Paths'},
  {key:'assignments',href:'/dashboard/assignments',label:'Assignments'},
  {key:'onboarding',href:'/dashboard/onboarding',label:'My Onboarding'},
+ {key:'cohorts',href:'/dashboard/cohorts',label:'Cohorts & Live Sessions'},
  {key:'skills',href:'/dashboard/skills',label:'Skills & Readiness'},
  {key:'goals',href:'/dashboard/goals',label:'Development Goals'},
  {key:'transcript',href:'/dashboard/transcript',label:'Learning Transcript'},
@@ -33,7 +34,9 @@ export const companyNavigation=[
  {key:'teams',href:'/company/teams',label:'Teams'},
  {key:'assignments',href:'/company/assignments',label:'Assignments'},
  {key:'onboarding',href:'/company/onboarding',label:'Onboarding'},
+ {key:'cohorts',href:'/company/cohorts',label:'Cohorts & Live Learning'},
  {key:'academy',href:'/company/academy',label:'Company Academy'},
+ {key:'whiteLabel',href:'/company/white-label',label:'Branding & Domain'},
  {key:'certificates',href:'/company/certificates',label:'Credentials'},
  {key:'reports',href:'/company/reports',label:'Reports'},
  {key:'skills',href:'/company/skills',label:'Skills Matrix'},
@@ -48,7 +51,9 @@ export const adminNavigation=[
  {label:'Overview',items:[
   {key:'overview',href:'/admin',label:'Dashboard'},
   {key:'analytics',href:'/admin/analytics',label:'Analytics'},
+  {key:'scheduledReports',href:'/admin/scheduled-reports',label:'Scheduled Reports'},
   {key:'revenue',href:'/admin/revenue',label:'Revenue & Renewals'},
+  {key:'sales',href:'/admin/sales',label:'Sales Pipeline'},
   {key:'activity',href:'/admin/activity',label:'Live Activity'}
  ]},
  {label:'Learning',items:[
@@ -57,6 +62,8 @@ export const adminNavigation=[
   {key:'assessments',href:'/admin/assessments',label:'Assessment Studio'},
   {key:'competencies',href:'/admin/competencies',label:'Competencies & Roles'},
   {key:'onboarding',href:'/admin/onboarding',label:'Onboarding Programs'},
+  {key:'cohorts',href:'/admin/cohorts',label:'Cohorts & Live Programs'},
+  {key:'quality',href:'/admin/quality',label:'Course Quality'},
   {key:'reviews',href:'/admin/reviews',label:'Review Queue'},
   {key:'resources',href:'/admin/resources',label:'Resources'},
   {key:'media',href:'/admin/media',label:'Media Library'},
@@ -86,6 +93,8 @@ export const adminNavigation=[
  ]},
  {label:'Enterprise',items:[
   {key:'enterprise',href:'/admin/enterprise',label:'Enterprise Controls'},
+  {key:'whiteLabel',href:'/admin/white-label',label:'White-label Academies'},
+  {key:'interoperability',href:'/admin/interoperability',label:'SCORM / xAPI / LTI'},
   {key:'imports',href:'/admin/imports',label:'Data Imports'},
   {key:'api',href:'/admin/api-keys',label:'API Keys'},
   {key:'webhooks',href:'/admin/webhooks',label:'Webhooks'}

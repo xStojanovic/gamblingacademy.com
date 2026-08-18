@@ -1,73 +1,51 @@
-# OpsAcademy — V5 Production Core
+# OpsAcademy V6 — Sellable Beta
 
-OpsAcademy is a modular professional learning SaaS for individual learners and company training. V5 moves the project from a broad product prototype toward a sellable beta architecture: modular feature domains, production persistence boundaries, advanced authoring and assessment, company onboarding, competency frameworks, governed credentials, billing/integration adapters, customer-success controls and security hardening.
+A modular professional learning SaaS with four connected workspaces:
 
-## Application surfaces
+- Public website
+- Learner LMS
+- Company Admin
+- Owner Admin
 
-- `/` — public website and acquisition
-- `/dashboard` — learner LMS
-- `/company` — customer company administration
-- `/admin` — OpsAcademy platform-owner administration
+V6 includes the Hostinger prerender hotfix for learning-path cards and is packaged for a full project replacement/re-upload.
 
-Legacy `/cms/*` routes redirect to the owner admin so `/admin` remains the single control surface.
+## Runtime
 
-## Modular code structure
+- Node.js: **22.x**
+- Next.js: **15.5.21 Maintenance LTS**
+- React / React DOM: **19.2.6**
 
-Business logic lives under `modules/`, not route files. V5 has 23 feature domains including authoring, learning, learner, company, competencies, onboarding, credentials, billing, reporting, permissions and owner administration.
-
-See `docs/v5/MODULE_MAP.md`.
-
-## V5 highlights
-
-- Advanced Course Studio with reusable lesson blocks, prerequisites, completion rules, drip scheduling and review/versioning
-- Assessment Studio with question pools, difficulty, weighted scoring, cooldowns and manual-grading architecture
-- Competency and role-readiness framework
-- Company 30/60/90-day onboarding programs
-- Company Academy and customer-account operations
-- Credential templates, public verification, PDF generation and revocation lifecycle
-- Learner progress, goals, notes, saved resources, transcript and skills persistence boundaries
-- Bulk admin actions and saved views
-- Revenue/renewal and company reporting surfaces
-- Stripe, Resend, Supabase, PostHog, OpenAI and media-service adapters
-- Production role resolution from authenticated database profiles
-- V5 RLS/security hardening migrations
-- First-class light and dark themes across all four workspaces
-- EN/SR/ES/PT shared-interface localization infrastructure
-
-## Local demo
+## Local run
 
 ```bash
-cp .env.example .env.local
 npm install
+npm run check:all
 npm run dev
 ```
 
-`NEXT_PUBLIC_DEMO_MODE=true` keeps the platform usable without external providers. Demo state is stored locally where appropriate.
-
-## Production activation
-
-1. Set `NEXT_PUBLIC_DEMO_MODE=false`.
-2. Configure Supabase and apply all migrations in `db/migrations` in numeric order.
-3. Configure Stripe, Resend, PostHog and other providers as required.
-4. Test learner, company-admin and owner-admin authorization separately.
-5. Run the production launch checklist in `docs/v5/PRODUCTION_SETUP.md`.
-
-## Validation
+## Production build
 
 ```bash
-npm run check:source
-npm run build
+npm install
+npm run hostinger:build
+npm run start
 ```
 
-The packaged V5 source passes the custom source validator for syntax, `@/` imports and configured navigation routes. A real Next.js build must still be run in a normal npm/CI environment before deployment.
+## Demo mode
 
-## Documentation
+For a frontend/demo deployment without external service credentials:
 
-- `docs/v5/IMPLEMENTATION_STATUS.md`
-- `docs/v5/BUILD_MANIFEST.md`
-- `docs/v5/MODULE_MAP.md`
-- `docs/v5/ROUTE_MAP.md`
-- `docs/v5/PRODUCTION_SETUP.md`
-- `docs/v5/CHANGELOG.md`
+```env
+NEXT_PUBLIC_DEMO_MODE=true
+NEXT_PUBLIC_APP_URL=https://your-domain.com
+```
 
-Older V2–V4 project notes are retained under `docs/archive/` for history only.
+Set `NEXT_PUBLIC_DEMO_MODE=false` only after Supabase/Auth environment variables are configured and migrations are applied.
+
+## Core modules
+
+Business logic lives under `/modules`, while `/app` route files should remain thin entry points.
+
+V6 adds modular domains for cohorts, white-label academies, B2B sales, LMS interoperability and course quality.
+
+See `docs/v6/MODULE_MAP.md` and `docs/v6/HOSTINGER_REUPLOAD.md`.

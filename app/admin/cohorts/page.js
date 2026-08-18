@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import CohortManager from '@/modules/cohorts/components/CohortManager';
+export default function Page(){return <AdminShell active="cohorts" eyebrow="Owner Admin / Learning" title="Cohorts & Live Programs" description="Operate instructor-led cohorts, capacity, live sessions and cohort reporting from one workspace."><CohortManager mode="admin"/></AdminShell>}

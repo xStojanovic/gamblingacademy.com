@@ -1,0 +1,2 @@
+import AdminShell from '@/modules/admin/components/AdminShell';import CourseQualityCenter from '@/modules/quality/components/CourseQualityCenter';
+export default function Page(){return <AdminShell active="quality" eyebrow="Owner Admin / Learning" title="Course Quality Center" description="Monitor content freshness, accessibility, editorial issues and review readiness across the catalogue."><CourseQualityCenter/></AdminShell>}
