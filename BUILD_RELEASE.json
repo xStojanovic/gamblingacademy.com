@@ -1,0 +1,16 @@
+{
+  "product": "OpsAcademy",
+  "release": "V7 Deployment Ready",
+  "version": "0.7.0",
+  "next": "15.5.21",
+  "react": "19.2.6",
+  "node": "22.x",
+  "hostinger": {
+    "frameworkPreset": "Next.js",
+    "branch": "main",
+    "rootDirectory": "./",
+    "buildCommand": "npm run build",
+    "packageManager": "npm",
+    "outputDirectory": ".next"
+  }
+}

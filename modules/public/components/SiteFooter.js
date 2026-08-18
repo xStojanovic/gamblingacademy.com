@@ -5,7 +5,7 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
-          <div className="brand footer-brand"><span className="brand-mark">GO</span><span>OpsAcademy <b>Academy</b></span></div>
+          <div className="brand footer-brand"><span className="brand-mark">OA</span><span>OpsAcademy</span></div>
           <p className="muted">Professional education for people and teams working across the regulated operations industry.</p>
         </div>
         <div><h4>Learn</h4><Link href="/courses">Courses</Link><Link href="/learning-paths">Learning Paths</Link><Link href="/certifications">Certificates</Link><Link href="/resources">Resource Library</Link><Link href="/knowledge">Knowledge Hub</Link></div>

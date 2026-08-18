@@ -1,23 +1,26 @@
 {
-  "name": "opsacademy-platform-v6",
-  "version": "0.6.0",
+  "name": "opsacademy-platform-v7",
+  "version": "0.7.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/prebuild-v7.cjs",
     "build": "next build",
+    "postbuild": "node scripts/postbuild-v7.cjs",
     "start": "next start",
     "lint": "node scripts/validate-source.cjs",
     "check:source": "node scripts/validate-source.cjs",
-    "check:all": "npm run check:source && node scripts/validate-v6.cjs",
-    "hostinger:build": "npm run check:all && next build"
+    "check:jsx": "node scripts/jsx-object-safety.cjs",
+    "check:catalog": "node scripts/catalog-safety.cjs",
+    "check:routes": "node scripts/route-audit.cjs",
+    "check:v7": "node scripts/validate-v7.cjs",
+    "check:all": "npm run check:source && npm run check:jsx && npm run check:catalog && npm run check:routes && npm run check:v7"
   },
   "dependencies": {
     "next": "15.5.21",
     "react": "19.2.6",
-    "react-dom": "19.2.6"
-  },
-  "devDependencies": {
-    "typescript": "^5.8.3"
+    "react-dom": "19.2.6",
+    "typescript": "5.8.3"
   },
   "engines": {
     "node": "22.x"

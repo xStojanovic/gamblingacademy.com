@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { renderText } from '@/modules/shared/utils/renderText';
 
 function normalizePathCourse(course, index) {
   if (typeof course === 'string') {
@@ -11,9 +12,9 @@ function normalizePathCourse(course, index) {
 
   if (course && typeof course === 'object') {
     return {
-      key: course.slug || course.id || `${course.title || 'course'}-${index}`,
-      title: course.title || course.name || course.slug || `Course ${index + 1}`,
-      slug: course.slug || null,
+      key: renderText(course.slug || course.id || `${renderText(course.title, 'course')}-${index}`),
+      title: renderText(course.title || course.name || course.slug, `Course ${index + 1}`),
+      slug: renderText(course.slug) || null,
     };
   }
 
@@ -25,7 +26,9 @@ function normalizePathCourse(course, index) {
 }
 
 export default function PathCard({ path }) {
-  const pathCourses = Array.isArray(path?.courses)
+  if (!path || typeof path !== 'object') return null;
+
+  const pathCourses = Array.isArray(path.courses)
     ? path.courses.map(normalizePathCourse)
     : [];
 
@@ -33,11 +36,11 @@ export default function PathCard({ path }) {
     <article className="card path-card">
       <div className="course-topline">
         <span className="pill">Learning Path</span>
-        {path?.badge ? <span className="badge">{String(path.badge)}</span> : null}
+        {path.badge ? <span className="badge">{renderText(path.badge)}</span> : null}
       </div>
 
-      <h3>{String(path?.title || 'Learning Path')}</h3>
-      <p className="muted">{String(path?.description || '')}</p>
+      <h3>{renderText(path.title, 'Learning Path')}</h3>
+      <p className="muted">{renderText(path.description)}</p>
 
       <div className="path-list">
         {pathCourses.map((course, index) => (
@@ -53,7 +56,7 @@ export default function PathCard({ path }) {
       </div>
 
       <div className="course-meta">
-        <span>{String(path?.duration || '')}</span>
+        <span>{renderText(path.duration)}</span>
         <span>Verified certificate</span>
       </div>
     </article>

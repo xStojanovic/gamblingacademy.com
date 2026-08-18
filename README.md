@@ -1,51 +1,77 @@
-# OpsAcademy V6 — Sellable Beta
+# OpsAcademy V7 — Deployment Ready
 
-A modular professional learning SaaS with four connected workspaces:
+V7 is the deployment-hardened modular release of the OpsAcademy professional learning platform.
 
-- Public website
-- Learner LMS
-- Company Admin
-- Owner Admin
+The codebase is split by product domain so public website, learner LMS, company administration, owner administration, authoring, assessment, credentials, billing, AI, analytics, integrations and shared UI can evolve independently.
 
-V6 includes the Hostinger prerender hotfix for learning-path cards and is packaged for a full project replacement/re-upload.
+## Hostinger configuration
 
-## Runtime
+V7 is built specifically to work with the standard Hostinger Next.js settings:
 
-- Node.js: **22.x**
-- Next.js: **15.5.21 Maintenance LTS**
-- React / React DOM: **19.2.6**
+- Framework preset: **Next.js**
+- Branch: **main**
+- Node version: **22.x**
+- Root directory: **./**
+- Build command: **npm run build**
+- Package manager: **npm**
+- Output directory: **.next**
+- Environment variables: **none required for demo mode**
 
-## Local run
+`npm run build` automatically executes the V7 prebuild safety suite before `next build`, and verifies the `.next` output afterward.
+
+## Local commands
 
 ```bash
 npm install
 npm run check:all
-npm run dev
-```
-
-## Production build
-
-```bash
-npm install
-npm run hostinger:build
+npm run build
 npm run start
 ```
 
+## Deployment safety
+
+The prebuild automatically:
+
+1. verifies Node 22;
+2. verifies both declared and actually installed Next/React versions;
+3. removes stale `.next` output;
+4. parses all JS/JSX source;
+5. checks internal module imports;
+6. scans for unsafe direct object rendering in JSX;
+7. validates course/path/resource/article data used during prerendering;
+8. audits static internal routes;
+9. verifies V7 release assets.
+
+If Hostinger reuses stale dependencies, the build now fails before Next.js prerendering with an explicit `STALE DEPENDENCY CACHE` message.
+
+## Build diagnostics
+
+After deployment open:
+
+- `/build-info`
+- `/api/build-info`
+- Owner Admin → Platform → Deployments & Releases
+
+The runtime should report:
+
+- OpsAcademy `0.7.0`
+- Next.js `15.5.21`
+- React `19.2.6`
+- Node `v22.x`
+
 ## Demo mode
 
-For a frontend/demo deployment without external service credentials:
+Demo mode is enabled by default when `NEXT_PUBLIC_DEMO_MODE` is unset. This allows the complete product to build and run without external provider credentials.
 
-```env
-NEXT_PUBLIC_DEMO_MODE=true
-NEXT_PUBLIC_APP_URL=https://your-domain.com
-```
+Production services can later be activated independently using Supabase, Stripe, Resend, OpenAI, PostHog, Mux and CRM environment variables.
 
-Set `NEXT_PUBLIC_DEMO_MODE=false` only after Supabase/Auth environment variables are configured and migrations are applied.
+## Main workspaces
 
-## Core modules
+- `/` — Public website
+- `/dashboard` — Learner LMS
+- `/company` — Company Admin
+- `/admin` — OpsAcademy Owner Admin
 
-Business logic lives under `/modules`, while `/app` route files should remain thin entry points.
+## Documentation
 
-V6 adds modular domains for cohorts, white-label academies, B2B sales, LMS interoperability and course quality.
-
-See `docs/v6/MODULE_MAP.md` and `docs/v6/HOSTINGER_REUPLOAD.md`.
+See `docs/v7/` for the deployment guide, release notes, implementation status and validation manifest.

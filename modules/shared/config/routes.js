@@ -106,6 +106,7 @@ export const adminNavigation=[
   {key:'audit',href:'/admin/audit',label:'Audit Log'},
   {key:'backups',href:'/admin/backups',label:'Backups & Export'},
   {key:'health',href:'/admin/system',label:'System Health'},
+  {key:'deployments',href:'/admin/deployments',label:'Deployments & Releases'},
   {key:'settings',href:'/admin/settings',label:'Platform Settings'}
  ]}
 ];
